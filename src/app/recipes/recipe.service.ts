@@ -9,22 +9,29 @@ import { Ingredient } from "../shared/ingredient.model";
 export class RecipeService {
   recipeChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      "A test recipe",
-      "this is simply a test",
-      "https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg",
-      [new Ingredient("meat", 2)]
-    ),
-    new Recipe(
-      "A  recipe",
-      "this is simply a test",
-      "https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg",
-      [new Ingredient("buns", 2), new Ingredient("meat", 2)]
-    )
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     "A test recipe",
+  //     "this is simply a test",
+  //     "https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg",
+  //     [new Ingredient("meat", 2)]
+  //   ),
+  //   new Recipe(
+  //     "A  recipe",
+  //     "this is simply a test",
+  //     "https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg",
+  //     [new Ingredient("buns", 2), new Ingredient("meat", 2)]
+  //   )
+  // ];
+
+  private recipes: Recipe[] = [];
 
   constructor(private slService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipeChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();

@@ -23,7 +23,7 @@
       </li>
     </ul>
 
-    <div ngbDropdown display="dynamic" placement="bottom" class="ml-auto">
+    <div ngbDropdown display="dynamic" placement="bottom" class="ml-auto mr-3">
       <button
         ngbDropdownToggle
         class="btn btn-secondary dropdown-toggle"
@@ -32,8 +32,12 @@
         Manage
       </button>
       <div ngbDropdownMenu aria-labelledby="myDropdown">
-        <a style="cursor:pointer" ngbDropdownItem>Save Data</a>
-        <a style="cursor:pointer" ngbDropdownItem>Fetch Data</a>
+        <a style="cursor:pointer" ngbDropdownItem (click)="onSaveData()"
+          >Save Data</a
+        >
+        <a style="cursor:pointer" ngbDropdownItem (click)="onFetchData()"
+          >Fetch Data</a
+        >
       </div>
     </div>
   </div>
