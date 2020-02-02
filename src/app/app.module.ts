@@ -1,4 +1,3 @@
-import { RecipeService } from "./recipes/recipe.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -19,6 +18,8 @@ import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.com
 import { RecipeItemComponent } from "./recipes/recipe-list/recipe-item/recipe-item.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-edit.component";
+import { AuthComponent } from "./auth/auth.component";
+import { RecipeService } from "./recipes/recipe.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-ed
     ShoppingEditComponent,
     RecipeStartComponent,
     RecipeEditComponent,
-    DropdownDirective
+    DropdownDirective,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
