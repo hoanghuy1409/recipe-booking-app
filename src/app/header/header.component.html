@@ -15,32 +15,44 @@
 
   <div id="myNavbar" class="collapse navbar-collapse">
     <ul class="navbar-nav justify-content-center">
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated">
         <a class="nav-link" routerLink="/recipes">Recipe</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf='!isAuthenticated'>
         <a class="nav-link" routerLink="/auth">Authenticate</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
       </li>
     </ul>
-
-    <div ngbDropdown display="dynamic" placement="bottom" class="ml-auto mr-3">
-      <button
-        ngbDropdownToggle
-        class="btn btn-secondary dropdown-toggle"
-        id="myDropdown"
+    <div class="ml-auto d-flex">
+      <ul class="navbar-nav mr-3" *ngIf="isAuthenticated" >
+        <li class="nav-item">
+          <a class="nav-link" (click)="onLogout()" style="cursor: pointer;">Logout</a>
+        </li>
+      </ul>
+      <div
+        ngbDropdown
+        display="dynamic"
+        placement="bottom"
+        class=" mr-3"
+        *ngIf="isAuthenticated"
       >
-        Manage
-      </button>
-      <div ngbDropdownMenu aria-labelledby="myDropdown">
-        <a style="cursor:pointer" ngbDropdownItem (click)="onSaveData()"
-          >Save Data</a
+        <button
+          ngbDropdownToggle
+          class="btn btn-secondary dropdown-toggle"
+          id="myDropdown"
         >
-        <a style="cursor:pointer" ngbDropdownItem (click)="onFetchData()"
-          >Fetch Data</a
-        >
+          Manage
+        </button>
+        <div ngbDropdownMenu aria-labelledby="myDropdown">
+          <a style="cursor:pointer" ngbDropdownItem (click)="onSaveData()"
+            >Save Data</a
+          >
+          <a style="cursor:pointer" ngbDropdownItem (click)="onFetchData()"
+            >Fetch Data</a
+          >
+        </div>
       </div>
     </div>
   </div>
