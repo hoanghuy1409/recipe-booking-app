@@ -1,3 +1,5 @@
+import { PlaceholderDirective } from "./shared/placeholder/placeholder.directive";
+
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -20,6 +22,8 @@ import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-edit.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 import { AuthComponent } from "./auth/auth.component";
+import { AlertComponent } from "./shared/alert/alert.component";
+
 import { RecipeService } from "./recipes/recipe.service";
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 
@@ -36,8 +40,10 @@ import { AuthInterceptorService } from "./auth/auth-interceptor.service";
     RecipeStartComponent,
     RecipeEditComponent,
     DropdownDirective,
+    PlaceholderDirective,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +62,7 @@ import { AuthInterceptorService } from "./auth/auth-interceptor.service";
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AlertComponent]
 })
 export class AppModule {}
