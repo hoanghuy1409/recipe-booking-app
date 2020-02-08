@@ -68,7 +68,7 @@
           <div
             class="row mt-3"
             *ngFor="
-              let ingredientCtrl of recipeForm.get('ingredients').controls;
+              let ingredientCtrl of ingredientsControls;
               let i = index
             "
             [formGroupName]="i"
